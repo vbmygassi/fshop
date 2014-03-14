@@ -21,8 +21,8 @@ class CartTest extends Test
 	{
 		$this->cart->truncate();
 		
-		$this->cart->add($prod = new Prod("007", "Banane", "2"));
-		$this->cart->add($prpd = new Prod("009", "ColaCo", "4"));
+		$this->cart->add($prod = new Prod("007", "Banane"), 2);
+		$this->cart->add($prpd = new Prod("009", "ColaCo"), 5);
 		
 		$prodCount = $this->cart->getProdCount();
 		if(2 == $prodCount){
@@ -36,12 +36,13 @@ class CartTest extends Test
 	public function testRemove()
 	{
 		$this->cart->truncate();
-		$this->cart->add($prod = new Prod("007", "Banane", "2"));
-		$this->cart->add($prod = new Prod("009", "ColaCo", "4"));
+		$this->cart->add($prod = new Prod("007", "Banane"), 2);
+		$this->cart->add($prpd = new Prod("009", "ColaCo"), 5);
+		$this->cart->add($prpd = new Prod("012", "FcCklL"), 5);
 		$this->cart->remove($prod);
 		
 		$prodCount = $this->cart->getProdCount();
-		if(1 == $prodCount){
+		if(2 == $prodCount){
 			$this->printMessage(L::__("CartTest::testRemove():succeeded"));
 		}
 		else {
@@ -52,8 +53,8 @@ class CartTest extends Test
 	public function testRemoveBySKU()
 	{
 		$this->cart->truncate();
-		$this->cart->add($prod = new Prod("007", "Banane", "2"));
-		$this->cart->add($prod = new Prod("009", "ColaCo", "4"));
+		$this->cart->add($prpd = new Prod("009", "ColaCo"), 5);
+		$this->cart->add($prod = new Prod("007", "Banane"), 2);
 		$this->cart->removeBySKU($prod->SKU);
 		
 		$prodCount = $this->cart->getProdCount();
@@ -67,9 +68,9 @@ class CartTest extends Test
 
 	public function testToJSON()
 	{
-		$this->cart->add($prod = new Prod("007", "Banane", "2"));
-		$this->cart->add($prod = new Prod("009", "ColaCo", "4"));
-		$this->cart->add($prod = new Prod("012", "Slurpa", "7"));
+		$this->cart->truncate();
+		$this->cart->add($prpd = new Prod("009", "ColaCo"), 5);
+		$this->cart->add($prod = new Prod("007", "Banane"), 2);
 		$json = $this->cart->toJSON();
 		print $json;	
 		print PHP_EOL;

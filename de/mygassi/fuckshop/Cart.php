@@ -1,5 +1,6 @@
 <?php
 require_once("de/mygassi/fuckshop/Session.php");
+require_once("de/mygassi/fuckshop/CartItem.php");
 
 Class Cart
 {
@@ -11,18 +12,19 @@ Class Cart
 	public function __construct()
 	{
 		$this->session = new Session();
-		$this->prods = $this->getSessionCart();
-		if(null == $this->prods){
-			$this->prods = array();
+		$this->items = $this->getSessionCart();
+		if(null == $this->items){
+			$this->items = array();
 		}
 	}
 	
 	/*
 	Adds an prod to the cart
 	*/
-	public function add($prod)
+	public function add($prod, $qty)
 	{
-		$this->prods[]= $prod;
+		$item = new CartItem($prod, $qty);
+		$this->items[]= $item;
 		$this->setSessionCart();
 	}
 
@@ -39,13 +41,13 @@ Class Cart
 	*/
 	public function removeBySKU($SKU)
 	{
-		$prods = array();
-		foreach($this->prods as $prod){
-			if($prod->SKU != $SKU){
-				$prods[]= $prod;
+		$items = array();
+		foreach($this->items as $item){
+			if($item->prod->SKU != $SKU){
+				$items[]= $item;
 			}
 		}
-		$this->prods = $prods;
+		$this->items = $items;
 		$this->setSessionCart();
 	}
 
@@ -54,7 +56,7 @@ Class Cart
 	*/
 	public function truncate()
 	{
-		$this->prods = array();
+		$this->items = array();
 		$this->setSessionCart();
 	}		
 	
@@ -63,7 +65,7 @@ Class Cart
 	*/
 	public function getProdCount()
 	{
-		$res = count($this->prods);
+		$res = count($this->items);
 		return $res;
 	}
 
@@ -72,7 +74,7 @@ Class Cart
 	*/
 	protected function setSessionCart()
 	{
-		$this->session->set("cart", $this->prods);
+		$this->session->set("cart", $this->items);
 	}
 
 	protected function getSessionCart()
@@ -85,7 +87,7 @@ Class Cart
 	*/
 	public function toJSON()
 	{
-		return json_encode($this->prods);
+		return json_encode($this->items);
 	}
 
 	/*
@@ -93,7 +95,7 @@ Class Cart
 	*/
 	public function toString()
 	{
-		return serialize($this->prods);
+		return serialize($this->items);
 	}
 }
 

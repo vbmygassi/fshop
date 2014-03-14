@@ -4,11 +4,21 @@ class Prod
 {
 	public $SKU;
 	public $title;
-	public $qty;
-	public function __construct($SKU, $title, $qty)
+	
+	public $catIDs;
+	
+	public function __construct($SKU="0", $title="", $catIDs=array())
 	{
-		$this->SKU = $SKU;
 		$this->title = $title;
-		$this->qty = $qty;
+		$this->SKU = $SKU;
+		$this->catIDs = $catIDs;
+	}
+
+	/*
+	Links prodcut to a category
+	*/
+	public function addCatID($id)
+	{
+		$this->catIDs[]= $id;
 	}
 }

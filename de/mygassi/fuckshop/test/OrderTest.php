@@ -26,8 +26,8 @@ class OrderTest extends Test
 	
 		// selects current cart
 		$cart = new Cart(); 	
-		$cart->add($prod = new Prod("007", "Banane", "2"));
-		$cart->add($prpd = new Prod("009", "ColaCo", "4"));
+		$cart->add($prod = new Prod("007", "Banane"), 4);
+		$cart->add($prpd = new Prod("009", "ColaCo"), 9);
 		
 		// sets up an order 	
 		$this->order = new Order($customer, $shipping, $cart);
@@ -43,8 +43,8 @@ class OrderTest extends Test
 		$address = new Address("Teststrasse", "42", "21098", "Hamburg", "de_DE");
 		$shipping = new Shipping($customer, $address);
 		$cart = new Cart(); 	
-		$cart->add($prod = new Prod("007", "Banane", "2"));
-		$cart->add($prpd = new Prod("009", "ColaCo", "4"));
+		$cart->add($prod = new Prod("007", "Banane"), 4);
+		$cart->add($prpd = new Prod("009", "ColaCo"), 4);
 		$this->order = new Order($customer, $shipping, $cart);
 			
 		// generates invoice
@@ -59,8 +59,8 @@ class OrderTest extends Test
 		$address = new Address("Teststrasse", "42", "21098", "Hamburg", "de_DE");
 		$shipping = new Shipping($customer, $address);
 		$cart = new Cart(); 	
-		$cart->add($prod = new Prod("007", "Banane", "2"));
-		$cart->add($prpd = new Prod("009", "ColaCo", "4"));
+		$cart->add($prod = new Prod("007", "Banane"), 4);
+		$cart->add($prpd = new Prod("009", "ColaCo"), 4);
 		$this->order = new Order($customer, $shipping, $cart);
 	
 		// adds revisions
@@ -79,8 +79,8 @@ class OrderTest extends Test
 		$address = new Address("Teststrasse", "42", "21098", "Hamburg", "de_DE");
 		$shipping = new Shipping($customer, $address);
 		$cart = new Cart(); 	
-		$cart->add($prod = new Prod("007", "Banane", "2"));
-		$cart->add($prpd = new Prod("009", "ColaCo", "4"));
+		$cart->add($prod = new Prod("007", "Banane"), 4);
+		$cart->add($prpd = new Prod("009", "ColaCo"), 4);
 		$this->order = new Order($customer, $shipping, $cart);
 		$this->order->cancelOrder();	
 		$this->printMessage(json_encode($this->order));
