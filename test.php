@@ -2,6 +2,8 @@
 require("de/mygassi/fuckshop/test/SessionTest.php");
 require("de/mygassi/fuckshop/test/CartTest.php");
 require("de/mygassi/fuckshop/test/OrderTest.php");
+require("de/mygassi/fuckshop/test/CategoryTest.php");
+require("de/mygassi/fuckshop/test/CatalogTest.php");
 
 $st = new SessionTest();
 $st->testTruncate();
@@ -22,10 +24,7 @@ $ot->testAddRevision();
 $ot->testCancelOrder();
 
 $ct = new CategoryTest();
+
 $ct = new CatalogTest();
-
-
-
-
 
 ?>
