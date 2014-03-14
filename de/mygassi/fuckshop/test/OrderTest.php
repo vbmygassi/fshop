@@ -20,7 +20,7 @@ class OrderTest extends Test
 		$address = new Address("Teststrasse", "42", "21098", "Hamburg", "de_DE");
 		
 		// shipping copies 
-		// customer and shipping addres, 
+		// customer and shipping address, 
 		// even if the data gets deleted, shipping still has a customer and an address
 		$shipping = new Shipping($customer, $address);
 	
@@ -63,10 +63,12 @@ class OrderTest extends Test
 		$cart->add($prpd = new Prod("009", "ColaCo"), 4);
 		$this->order = new Order($customer, $shipping, $cart);
 	
-		// adds revisions
-		$this->order->addRevision(new Revision(L::__("Ihre Bestellung ist eingegangen."), Order::INITED));	
-		$this->order->addRevision(new Revision(L::__("Ihre Bestellung ist versandt worden"), Order::SENT));	
-		$this->order->addRevision(new Revision(L::__("Ihre Bestellung ist storniert worden"), Order::CANCELED));	
+		// adds revisions //?? id??
+		$this->order->setState(new Revision($this->order->OID, L::__("Die Bestellung ist eingegangen."), Order::INITED));	
+		$this->order->setState(new Revision($this->order->OID, L::__("Die Bestellung ist versandt worden"), Order::SENT));	
+		$this->order->setState(new Revision($this->order->OID, L::__("Die Bestellung ist storniert worden"), Order::CANCELED));	
+		$this->order->setState(new Revision($this->order->OID, L::__("Die Bestellung ist bezahlt worden."), Order::PAYED));	
+		$this->order->setState(new Revision($this->order->OID, L::__("Die Bestellung ist zurückgestellt worden."), Order::HOLDED));	
 
 		// dumps the list
 		$this->printMessage(json_encode($this->order->getRevisions()));
