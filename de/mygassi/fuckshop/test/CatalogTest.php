@@ -40,4 +40,10 @@ class CatalogTest extends Test
 		
 		$this->printMessage(json_encode($this->catalog));
 	}
+
+	public function testLoadCatalogByCategoryId($cid)
+	{
+		// selects products of a cateogory: beats me... 
+		$this->printMessage(json_encode($this->catalog->loadCatalogByCategoryId($cid)));
+	}
 }

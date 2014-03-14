@@ -1,10 +1,10 @@
 <?php
-require("de/mygassi/fuckshop/test/SessionTest.php");
-require("de/mygassi/fuckshop/test/CartTest.php");
-require("de/mygassi/fuckshop/test/OrderTest.php");
-require("de/mygassi/fuckshop/test/CatTest.php");
-require("de/mygassi/fuckshop/test/ProdTest.php");
-require("de/mygassi/fuckshop/test/CatalogTest.php");
+require_once("de/mygassi/fuckshop/test/SessionTest.php");
+require_once("de/mygassi/fuckshop/test/CartTest.php");
+require_once("de/mygassi/fuckshop/test/OrderTest.php");
+require_once("de/mygassi/fuckshop/test/CatTest.php");
+require_once("de/mygassi/fuckshop/test/ProdTest.php");
+require_once("de/mygassi/fuckshop/test/CatalogTest.php");
 
 $st = new SessionTest();
 $st->testTruncate();
@@ -23,10 +23,12 @@ $ot->testNewOrder();
 $ot->testInitInvoice();
 $ot->testAddRevision();
 $ot->testCancelOrder();
+$ot->testSetOrderPayed();
 
 $ct = new CatTest();
 $pt = new ProdTest();
 
 $ct = new CatalogTest();
+$ct->testLoadCatalogByCategoryID("100");
 
 ?>

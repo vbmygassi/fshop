@@ -86,5 +86,17 @@ class OrderTest extends Test
 		$this->order = new Order($customer, $shipping, $cart);
 		$this->order->cancelOrder();	
 		$this->printMessage(json_encode($this->order));
+	}
+
+	public function testSetOrderPayed()
+	{
+		$customer = new Customer("Viktor", "Berzsinszky");
+		$address = new Address("Teststrasse", "42", "21098", "Hamburg", "de_DE");
+		$shipping = new Shipping($customer, $address);
+		$cart = new Cart(); 	
+		$cart->add($prod = new Prod("007", "Banane"), 4);
+		$this->order = new Order($customer, $shipping, $cart);
+		$this->order->setOrderPayed();
+		$this->printMessage(json_encode($this->order));
 	}	
 }
