@@ -1,9 +1,9 @@
 <?php
 
-require_once("de/mygassi/fuckshop/Category.php");
+require_once("de/mygassi/fuckshop/Cat.php");
 require_once("de/mygassi/fuckshop/test/Test.php");
 
-class CategoryTest extends Test
+class CatTest extends Test
 {
 	public $cat;
 	public function __construct()
