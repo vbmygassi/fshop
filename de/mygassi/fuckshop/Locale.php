@@ -23,7 +23,7 @@ class L
 	{
 		self::$locale = $locale;
 
-		// todo: Load locale mappings from somewhere sometime 
+		// todo: Load locale mappings from some wild wild wild place... dunno, wikipedia... 
 		self::$map = array(); 
 	}
 }
