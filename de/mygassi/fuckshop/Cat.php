@@ -1,13 +1,13 @@
 <?php
 
-class Category
+class Cat
 {
 	public $id;
 	public $title;
 	public $description;
 	public $path;
 	
-	public function __construct($id=0, $title="", $description="", $path="", $img="")
+	public function __construct($id="0", $title="", $description="", $path="", $img="")
 	{
 		$this->id = $id;
 		$this->title = $title;
