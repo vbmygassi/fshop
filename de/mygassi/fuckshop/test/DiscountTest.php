@@ -13,9 +13,8 @@ class DiscountTest extends Test
 
 	public function testApply()
 	{
-		$this->discount->addRule(new DiscountRule("TestRule1", 5.0, 0)); // 5 Euro 
-		$this->discount->addRule(new DiscountRule("TestRule2", 3.0, 0)); // 3 Euro 
-		$res = $this->discount->apply(100.0); // apply to a value (amount, price)
+		$this->discount->addRule(new DiscountRule("Weihnachten", "Ribatt for Weihnackter", "christmas"));  
+		$res = $this->discount->apply(100.0); 
 		$ares = round(93.0, 2);
 		if($ares == $res){
 			$this->printMessage("DiscountTest::succeeded");				

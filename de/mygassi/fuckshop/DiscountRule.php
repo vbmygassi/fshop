@@ -10,8 +10,10 @@
 		"customer is a first timer" or such
 
 	a rule gets applied
-		clerk-typed switched with different calculations oda?
+		clerk-typed switch with different calculations 
+		oda?
 
+'''
 	ja wie würdest du denn das machen?
 	ich meine, wie, wie sollte das gehen, du eierhals?
 	ja aufschreiben, oder?
@@ -22,14 +24,21 @@
 			price = price -15;
 		
 	}
-	odai?
+	oda?
 	woher soll ich wissen, was die von mir wollen ja?
+'''
+
 */
 class DiscountRule
 {
-	private $title;
+	public $title;
+	public $desc;
+	public $rule;
 
-	public function __construct()
+	public function __construct($title, $desc, $type)
 	{
+		$this->title = $title;
+		$this->desc = $desc;
+		$this->type = $type;
 	}
 }
