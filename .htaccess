@@ -6,8 +6,8 @@ DirectoryIndex index.php
 </IfModule>
 
 <IfModule mod_security.c>
-	SecFilterEngine Off
-	SecFilterScanPOST Off
+	SecFilterEngine On
+	SecFilterScanPOST On
 </IfModule>
 
 <IfModule mod_rewrite.c>
