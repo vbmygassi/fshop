@@ -9,7 +9,6 @@ require_once("de/mygassi/fuckshop/test/TaxTest.php");
 require_once("de/mygassi/fuckshop/test/DiscountTest.php");
 
 $st = new SessionTest();
-// $st->testTruncate();
 $st->testToJSON();
 $st->testToString();
 

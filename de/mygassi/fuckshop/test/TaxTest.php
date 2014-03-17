@@ -18,10 +18,10 @@ class TaxTest extends Test
 		
 		$assumedRes = round(23.94798319327737, 2);	
 		if($assumedRes === $res){
-			$this->printMessage("TaxTest::testTaxFromGermanGrossAmount::succeeded");
+			$this->printMessage("TaxTest::testTaxFromGermanGrossAmount():succeeded");
 		}
 		else {
-			$this->printError("TaxTest::testTaxFromGermanGrossAmount:failed: " . $res);
+			$this->printError("TaxTest::testTaxFromGermanGrossAmount():failed: " . $res);
 		}
 	}
 
@@ -33,25 +33,25 @@ class TaxTest extends Test
 		$assumedRes = round(2.375, 2);	
 		
 		if($assumedRes === $res){
-			$this->printMessage("TaxTest::testTaxFromGermanNetAmount::succeeded");
+			$this->printMessage("TaxTest::testTaxFromGermanNetAmount():succeeded");
 		}
 		else{
-			$this->printError("TaxTest::testTaxFromGermanNetAmount:failed: " . $res);
+			$this->printError("TaxTest::testTaxFromGermanNetAmount():failed: " . $res);
 		}	
 	}
 
 	public function testTaxFromNoSuchGrossAmount()
 	{
-		$res = $this->tax->setRule(new TaxRule("No SUCH tax", 2.98));
+		$res = $this->tax->setRule(new TaxRule("No Such Steuer 2.98%", 2.98));
 		$res = $this->tax->getTaxFromGrossAmount(100);
 		
 		$assumedRes = round(2.89376577976306, 2);	
 		
 		if($assumedRes === $res){
-			$this->printMessage("TaxTest::testTaxFromNoSuchGrossAmount::succeeded");
+			$this->printMessage("TaxTest::testTaxFromNoSuchGrossAmount():succeeded");
 		}
 		else{
-			$this->printError("TaxTest::testTaxFromNoSuchGrossAmount:failed: " . $res);
+			$this->printError("TaxTest::testTaxFromNoSuchGrossAmount():failed: " . $res);
 		}	
 	}
 }
