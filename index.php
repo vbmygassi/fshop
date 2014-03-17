@@ -9,7 +9,8 @@ $app = new Slim();
 //index.php
 //index.php/
 $app->get("/", function(){
-	print "It works!";
+	print '<meta charset="utf-8">';
+	print "Such den Witz nicht an der Wand, du hältst den Witz in deiner Hand.";
 });
 
 
@@ -25,6 +26,7 @@ require_once("de/mygassi/fuckshop/test/TaxTest.php");
 require_once("de/mygassi/fuckshop/test/DiscountTest.php");
 
 $app->get("/test/", function(){
+	print '<meta charset="utf-8">';
 	$st = new SessionTest();
 	$st->testToJSON();
 	$ct = new CartTest();
