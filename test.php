@@ -5,9 +5,11 @@ require_once("de/mygassi/fuckshop/test/OrderTest.php");
 require_once("de/mygassi/fuckshop/test/CatTest.php");
 require_once("de/mygassi/fuckshop/test/ProdTest.php");
 require_once("de/mygassi/fuckshop/test/CatalogTest.php");
+require_once("de/mygassi/fuckshop/test/TaxTest.php");
+require_once("de/mygassi/fuckshop/test/DiscountTest.php");
 
 $st = new SessionTest();
-$st->testTruncate();
+// $st->testTruncate();
 $st->testToJSON();
 $st->testToString();
 
@@ -30,5 +32,13 @@ $pt = new ProdTest();
 
 $ct = new CatalogTest();
 $ct->testLoadCatalogByCategoryID("100");
+
+$tt = new TaxTest();
+$tt->testTaxFromGermanGrossAmount();
+$tt->testTaxFromGermanNetAmount();
+$tt->testTaxFromNoSUCHGrossAmount();
+
+$dt = new DiscountTest();
+$dt->testApplyToAmount();
 
 ?>
