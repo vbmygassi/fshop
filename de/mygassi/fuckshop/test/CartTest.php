@@ -10,11 +10,11 @@ class CartTest extends Test
 	
 	public function __construct()
 	{
+		$this->cart = new Cart();
 	}
 	
 	public function setup()
 	{
-		$this->cart = new Cart();
 	}
 
 	public function testAdd()

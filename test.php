@@ -14,7 +14,6 @@ $st->testToJSON();
 $st->testToString();
 
 $ct = new CartTest();
-$ct->setup();
 $ct->testAdd();
 $ct->testRemove();
 $ct->testRemoveBySKU();
@@ -39,6 +38,6 @@ $tt->testTaxFromGermanNetAmount();
 $tt->testTaxFromNoSUCHGrossAmount();
 
 $dt = new DiscountTest();
-$dt->testApplyToAmount();
+$dt->testApply();
 
 ?>

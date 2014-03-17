@@ -11,7 +11,7 @@ class DiscountTest extends Test
 		$this->discount = new Discount();
 	}
 
-	public function testApplyToAmount()
+	public function testApply()
 	{
 		$this->discount->addRule(new DiscountRule("TestRule1", 5.0, 0)); // 5 Euro 
 		$this->discount->addRule(new DiscountRule("TestRule2", 3.0, 0)); // 3 Euro 
