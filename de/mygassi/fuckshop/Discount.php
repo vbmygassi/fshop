@@ -14,8 +14,8 @@ class Discount
 		$this->rules[]= $rule;
 	}
 
-	public function apply()
+	public function apply($amount)
 	{
-		return 100.0;
+		return $amount +13.8;
 	}
 }
