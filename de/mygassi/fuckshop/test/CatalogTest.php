@@ -35,9 +35,8 @@ class CatalogTest extends Test
 		$this->catalog->addProd(new Prod("eU12i_fE", "Bin ich wirklich so schwer zu verstehen?", array(100, 200, 300, 1298)));
 		$this->catalog->addProd(new Prod("eU12i_fE", "Siemenslufthaken", array(100, 200, 300, 1298)));
 		$this->catalog->addProd(new Prod("eU12i_fE", "Warum sollte man, zum Beispiel PHP in XML tun?", array(100, 200, 300, 1298)));
-		$this->catalog->addProd(new Prod("eU12i_fE", "-Wo ist Ulrich? -Ach, Urlik wohnen jetzt andere Haus. Seine Frojndi kommt mit Auto und weg. Er wohnt da hinten jetzt im grossen Haus.", array(100, 200, 300, 1298)));
+		$this->catalog->addProd(new Prod("eU12i_fE", "-Wo ist Ulrich? -Ach, Urlik wohne jetzt andere Haus. Seine Frojndi kommt mit Auto und weg. Er wohnt da hinta jetztat in grosse Haus. Nur mankmal komt.", array(100, 200, 300, 1298)));
 		$this->catalog->addProd(new Prod("eU12i_fE", "Siemenslufthaken", array(100, 200, 300, 1298)));
-		
 		$this->printMessage(json_encode($this->catalog));
 	}
 

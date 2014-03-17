@@ -6,6 +6,7 @@ class Cat
 	public $title;
 	public $description;
 	public $path;
+	public $img;
 	
 	public function __construct($id="0", $title="", $description="", $path="", $img="")
 	{
