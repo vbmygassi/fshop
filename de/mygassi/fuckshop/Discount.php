@@ -16,17 +16,19 @@ class Discount
 
 	/*
 	This is ugly.
-	An order consists of products, taxes, discount whatsoever.
-	The order (and the products whithin thit might apply a given discount-rule, or | even an coupon
+	An order consists of products, taxes, discounts whatsoever.
+	The order (and the products whithin that might "consume" a given discount-rule, or | coupon
 		sets up an invoice
-		that gets presented
-			that "freezes" 
-			and than gets payed
+			that "freezes" and gets presented as html, pdf and email and db record 
+			and gets payed
+			than the order sets up the "lieferschein" (hello, mr. liefersheyn...)
+			and retoure and than
+			and than 
+			and than.
+
 		"clazz Discount" is bull.
-		The Order applies the given discount rules (as for products or for the cart or for whatever reason
-			and generates 
-				the invoice
-				the packaging
+		
+		The order *consumes the given discount rules and or coupons (for the products each or for the emtire cart or for the order 
 				...
 		fuckdiss discount	
 	*/
