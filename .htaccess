@@ -1,0 +1,19 @@
+DirectoryIndex index.php
+
+<IfModule mod_php5.c>
+	php_value memory_limit 12M
+	php_value max_execution_time 1800
+</IfModule>
+
+<IfModule mod_security.c>
+	SecFilterEngine Off
+	SecFilterScanPOST Off
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	Options +FollowSymLinks
+	RewriteEngine on
+	RewriteBase /no/
+	RewriteRule .* index.php [L]
+</IfModule>
+

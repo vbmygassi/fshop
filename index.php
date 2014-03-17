@@ -14,8 +14,8 @@ $app->get("/", function(){
 });
 
 
-//index.php/test/
 //index.php/test
+//index.php/test/
 require_once("de/mygassi/fuckshop/test/SessionTest.php");
 require_once("de/mygassi/fuckshop/test/CartTest.php");
 require_once("de/mygassi/fuckshop/test/OrderTest.php");
