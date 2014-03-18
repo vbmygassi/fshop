@@ -18,7 +18,7 @@ class ChiffreTest extends Test
 	public function testEncrypt()
 	{
 		$res = $this->chiffre->encrypt($this->message, $this->key);
-		$this->printMessage("ChiffreTest::testEncrypt():succeeded");
+		$this->printMessage("ChiffreTest::testEncrypt():succeeded: " . $res);
 	}
 
 	public function testDecrypt()
@@ -26,7 +26,7 @@ class ChiffreTest extends Test
 		$res = $this->chiffre->encrypt($this->message, $this->key);
 		$res = $this->chiffre->decrypt($res, $this->key);
 		if(trim($this->message) == trim($res)){
-			$this->printMessage("ChiffreTest::testDecrypt():succeeded");
+			$this->printMessage("ChiffreTest::testDecrypt():succeeded: " . $res);
 		}
 		else{
 			$this->printError("ChiffreTest::testDecrypt():failed");
