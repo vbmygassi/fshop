@@ -1,27 +1,25 @@
 <?php
 
+
 class Chiffre
 {
-	/* http://phpsnaps.com/snaps/view/rijndael-256-bit-encryption-using-mcrypt/*/
-	public function mc_encrypt($encrypt, $mc_key)
+	public function encrypt($plaintext, $key)
 	{
-		// http://stackoverflow.com/questions/3422759/php-aes-encrypt-decrypt
-		// https://en.wikipedia.org/wiki/Block_cipher_modes_of_operation#Electronic_codebook_.28ECB.29
-		// $iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND);
-		$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_CBC), MCRYPT_RAND);
-		$passcrypt = trim(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $mc_key, trim($encrypt), MCRYPT_MODE_ECB, $iv));
-		$encode = base64_encode($passcrypt);
-		return $encode;
+		$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_CBC);
+		$iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+		$ciphertext = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key, $plaintext, MCRYPT_MODE_CBC, $iv);
+		$ciphertext = $iv.$ciphertext;
+		$ciphertext_base64 = base64_encode($ciphertext);
+		return $ciphertext_base64;
 	}
 
-	function mc_decrypt($decrypt, $mc_key)
+	public function decrypt($ciphertext, $key)
 	{
-		$decoded = base64_decode($decrypt);
-		// $iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND);
-		$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_CBC), MCRYPT_RAND);
-		$decrypted = trim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $mc_key, trim($decoded), MCRYPT_MODE_ECB, $iv));
-		return $decrypted;
+		$ciphertext_dec = base64_decode($ciphertext);
+		$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_CBC);
+		$iv_dec = substr($ciphertext_dec, 0, $iv_size);
+		$ciphertext_dec = substr($ciphertext_dec, $iv_size);
+		$plaintext_dec = mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $key, $ciphertext_dec, MCRYPT_MODE_CBC, $iv_dec);
+		return $plaintext_dec;
 	}
 }
-
-?>

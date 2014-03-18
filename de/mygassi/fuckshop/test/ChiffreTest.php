@@ -11,29 +11,21 @@ class ChiffreTest extends Test
 	public function __construct()
 	{
 		$this->chiffre = new Chiffre();
-		$this->message = "Entschuldigen Sie, kennen Sie diesen Mann? Er weiss nicht, dass seine Frau mich sucht.";
+		$this->message = "Kennen Sie diesen Mann? Er weiss nicht, dass seine Frau mich sucht.";
 		$this->key = hash("SHA256", "Gödöllö", true);
 	}
 	
 	public function testEncrypt()
 	{
-		$res = $this->chiffre->mc_encrypt($this->message, $this->key);
-		$ares = "mjFD8LbVxOjRDQdJUkg7qI1dkrdBtSw3WOVFZMSK43MSLIHnNq6A91sRfdPwHW7O98YvzDEGBNA9oOD13VGrjMtqAG1cIPotZxa6SRPVol2Heohl2hAmoqccUiWDvHy6";
-		if($ares == $res){
-			$this->printMessage("ChiffreTest::testEncrypt():succeeded");
-		}
-		else{
-			$this->printError("ChiffreTest::testEncrypt():failed");
-
-		}
+		$res = $this->chiffre->encrypt($this->message, $this->key);
+		$this->printMessage("ChiffreTest::testEncrypt():succeeded");
 	}
 
 	public function testDecrypt()
 	{
-		$res = $this->chiffre->mc_encrypt($this->message, $this->key);
-		$res = $this->chiffre->mc_decrypt($res, $this->key);
-
-		if($this->message == $res){
+		$res = $this->chiffre->encrypt($this->message, $this->key);
+		$res = $this->chiffre->decrypt($res, $this->key);
+		if(trim($this->message) == trim($res)){
 			$this->printMessage("ChiffreTest::testDecrypt():succeeded");
 		}
 		else{
