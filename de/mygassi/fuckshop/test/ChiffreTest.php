@@ -32,15 +32,12 @@ class ChiffreTest extends Test
 	{
 		$res = $this->chiffre->mc_encrypt($this->message, $this->key);
 		$res = $this->chiffre->mc_decrypt($res, $this->key);
-		
-		$ares = $this->message;
-		$ares = "Fuck your fucking face.";
 
-		if($ares == $res){
+		if($this->message == $res){
 			$this->printMessage("ChiffreTest::testDecrypt():succeeded");
 		}
 		else{
-			$this->printError("ChiffreTest::testDencrypt():failed");
+			$this->printError("ChiffreTest::testDecrypt():failed");
 		}
 	}
 }
