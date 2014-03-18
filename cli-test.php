@@ -7,6 +7,7 @@ require_once("de/mygassi/fuckshop/test/ProdTest.php");
 require_once("de/mygassi/fuckshop/test/CatalogTest.php");
 require_once("de/mygassi/fuckshop/test/TaxTest.php");
 require_once("de/mygassi/fuckshop/test/DiscountTest.php");
+require_once("de/mygassi/fuckshop/test/ChiffreTest.php");
 
 $st = new SessionTest();
 $st->testToJSON();
@@ -38,5 +39,9 @@ $tt->testTaxFromNoSUCHGrossAmount();
 
 $dt = new DiscountTest();
 $dt->testApply();
+
+$ct = new ChiffreTest();
+$ct->testEncrypt();
+$ct->testDecrypt();
 
 ?>
