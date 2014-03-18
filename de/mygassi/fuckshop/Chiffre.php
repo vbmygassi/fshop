@@ -1,6 +1,5 @@
 <?php
 
-
 class Chiffre
 {
 	public function encrypt($plaintext, $key)
@@ -23,3 +22,5 @@ class Chiffre
 		return $plaintext_dec;
 	}
 }
+
+?>

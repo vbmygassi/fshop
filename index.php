@@ -22,6 +22,7 @@ $app->get("/test/", function(){
 	require_once("de/mygassi/fuckshop/test/SessionTest.php");
 	require_once("de/mygassi/fuckshop/test/CartTest.php");
 	require_once("de/mygassi/fuckshop/test/OrderTest.php");
+	require_once("de/mygassi/fuckshop/test/ChiffreTest.php");
 	print '<meta charset="utf-8">';
 	$st = new SessionTest();
 	$st->testToJSON();
@@ -33,6 +34,9 @@ $app->get("/test/", function(){
 	$ot = new OrderTest();
 	$ot->testNewOrder();
 	$ot->testInitInvoice();
+	$ct = new ChiffreTest();
+	$ct->testEncrypt();
+	$ct->testDecrypt();
 });
 
 $app->run();

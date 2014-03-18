@@ -72,8 +72,7 @@ class CartTest extends Test
 		$this->cart->add($prpd = new Prod("009", "ColaCo"), 5);
 		$this->cart->add($prod = new Prod("007", "Banane"), 2);
 		$json = $this->cart->toJSON();
-		print $json;	
-		print PHP_EOL;
+		$this->printMessage(L::__("CartTest::testToJSON():succeeded: " . $json));
 	}
 }
 
