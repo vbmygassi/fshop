@@ -12,13 +12,13 @@ class ChiffreTest extends Test
 	{
 		$this->chiffre = new Chiffre();
 		$this->message = "Entschuldigen Sie, kennen Sie diesen Mann? Er weiss nicht, dass seine Frau mich sucht.";
-		$this->key = "Gödöllö";
+		$this->key = hash("SHA256", "Gödöllö", true);
 	}
 	
 	public function testEncrypt()
 	{
 		$res = $this->chiffre->mc_encrypt($this->message, $this->key);
-		$ares = "plGUg/o/NqwjyuEkZ0oUsRNUpaRGlK7G7lbLh5c6qFzw61TelJrpzE3qxx+pQ/r7IA2k8wqRACFQBaxBGQhBu3lBaO9wSZ5+ynn9UVYEvyDxfwE50LfWfZmSXKCbYPGN";
+		$ares = "mjFD8LbVxOjRDQdJUkg7qI1dkrdBtSw3WOVFZMSK43MSLIHnNq6A91sRfdPwHW7O98YvzDEGBNA9oOD13VGrjMtqAG1cIPotZxa6SRPVol2Heohl2hAmoqccUiWDvHy6";
 		if($ares == $res){
 			$this->printMessage("ChiffreTest::testEncrypt():succeeded");
 		}
