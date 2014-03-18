@@ -4,8 +4,8 @@ require_once("de/mygassi/fuckshop/test/Test.php");
 
 class ChiffreTest extends Test
 {
-	private $message;
 	private $key;
+	private $message;
 	private $chiffre;	
 
 	public function __construct()
