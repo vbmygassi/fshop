@@ -3,31 +3,38 @@ require_once("de/mygassi/fuckshop/Locale.php");
 
 class Order
 {
-	public $OID; // real order id
-	
+	public $OID; // real order id, like the one order id like for real
 	public $customer;
 	public $cart;
 	public $shipping;
 	public $invoice;
 	public $packaging;
+	public $dicsount;
+
 	protected $revisions;
 	protected $state;	
 	
-	const CANCELED = "canceled";
 	const INITED = "inited";
-	const SENT = "sent";
-	const PAYED = "payed";
+	const CANCELED = "canceled";
+	const PAID = "paid";
+	const INVOICED = "invoiced";
 	const HOLDED = "holded";
+	const SENT = "sent";
 	
 	public function __construct($customer, $cart, $shipping)
 	{
+		$this->OID = 0; // all time unique generated id
 		$this->customer = $customer;
-		$this->cart = $cart;
 		$this->shipping = $shipping;
 		$this->revisions = array();
-		$this->OID = 0; // all time unique generated id
+		$this->cart = $cart;
 	}
 
+	public function setCart($cart)
+	{
+		$this->cart = $cart;
+	}
+	
 	public function toJSON()
 	{
 		return json_encode($this);

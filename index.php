@@ -5,19 +5,11 @@ use \Slim\Slim;
 
 $app = new Slim();
 
-//
-//index.php
-//index.php/
 $app->get("/", function(){
 	print '<meta charset="utf-8">';
 	print "Nicknack.";
 });
 
-
-//index.php/test
-//index.php/test/
-//test
-//test/
 $app->get("/test/", function(){
 	require_once("de/mygassi/fuckshop/test/SessionTest.php");
 	require_once("de/mygassi/fuckshop/test/CartTest.php");

@@ -26,11 +26,13 @@ class Discount
 			and than 
 			and than.
 
-		"clazz Discount" is bull.
-		
 		The order *consumes the given discount rules and or coupons (for the products each or for the emtire cart or for the order 
 				...
-		fuckdiss discount	
+	
+	an ORDER has a discount
+		->and generates an invoice
+			->that gets delivered to the client
+		->order generates the lieferscheyen and such
 	*/
 	public function apply($amount)
 	{
