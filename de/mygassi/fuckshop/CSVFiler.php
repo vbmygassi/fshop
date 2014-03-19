@@ -2,9 +2,9 @@
 
 /*
 
- Salesfraggles use excel and no admin panels. 
- Excel is wrong: no import or such. 
-	Excel it again plz.
+ Salesfraggles use excel and no adminpanels. 
+ ->There will be no import once the excel CSV is wrong.
+ ->Excel it again plz.
 
  Import is from Excel CSV.
  Export is to Excel CSV.
