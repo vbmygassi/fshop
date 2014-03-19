@@ -2,12 +2,15 @@
 
 /*
 
- Sales-Fraggles like their data in Excel anyway
-	The import.
-	The export.
- 
- There is no way they are going to click through an "Adminpanel".
+ Salesfraggles like their data in the excel way
+	So goes the import.
+	As goes alogn the export.
+	As go the the sales reports.
+
+ Nobody, i really mean NOBODY is going to click the Adminpanel. 
+ And especially NOT YOU.
  And than this is good in fact.
+ 
 
  */
 
