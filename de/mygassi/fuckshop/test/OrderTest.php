@@ -67,7 +67,7 @@ class OrderTest extends Test
 		$this->order->setState(new Revision($this->order->OID, L::__("Die Bestellung ist eingegangen."), Order::INITED));	
 		$this->order->setState(new Revision($this->order->OID, L::__("Die Bestellung ist versandt worden"), Order::SENT));	
 		$this->order->setState(new Revision($this->order->OID, L::__("Die Bestellung ist storniert worden"), Order::CANCELED));	
-		$this->order->setState(new Revision($this->order->OID, L::__("Die Bestellung ist bezahlt worden."), Order::PAYED));	
+		$this->order->setState(new Revision($this->order->OID, L::__("Die Bestellung ist bezahlt worden."), Order::PAID));	
 		$this->order->setState(new Revision($this->order->OID, L::__("Die Bestellung ist zurückgestellt worden."), Order::HOLDED));	
 
 		// dumps the list

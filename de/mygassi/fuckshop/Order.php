@@ -63,12 +63,12 @@ class Order
 
 	public function setOrderPayed()
 	{
-		$this->setState($revision = new Revision($this->OID, L::__("Die Bestellung ist bezahlt."), self::PAYED));
+		$this->setState($revision = new Revision($this->OID, L::__("Die Bestellung ist bezahlt."), self::PAID));
 	}
 
 	public function setOrderSent()
 	{
-		$this->setState($revision = new Revision($this->OID, L::__("Die Bestellung ist versandt worden."), self::PAYED));
+		$this->setState($revision = new Revision($this->OID, L::__("Die Bestellung ist versandt worden."), self::SENT));
 	}
 }
 
